@@ -1,5 +1,5 @@
 create table state_abbreviations (
-	id serial primary key,
+	index int primary key,
 	state text,
 	state_abbr text
 );
@@ -7,18 +7,21 @@ create table state_abbreviations (
 select * from state_abbreviations;
 
 create table registrations (
-	id serial primary key,
+	index int primary key,
 	state text,
-	registrations int
+	registrations text
 );
+
+-- drop table registrations;
 
 select * from registrations;
 
 create table fuel_stations (
-	id serial primary key,
+	index int primary key,
 	state_abbr text,
 	fuel_type text
 );
+-- drop table fuel_stations;
 
 select * from fuel_stations;
 
