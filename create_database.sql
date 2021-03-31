@@ -1,3 +1,5 @@
+-- START OF SCRIPTS TO CREATE THE TABLE ---
+
 create table state_abbreviations (
 	index int primary key,
 	state text,
@@ -5,8 +7,7 @@ create table state_abbreviations (
 );
 
 -- drop table state_abbreviations;
-
-select * from state_abbreviations;
+-- select * from state_abbreviations;
 
 create table registrations (
 	index int primary key,
@@ -15,8 +16,7 @@ create table registrations (
 );
 
 -- drop table registrations;
-
-select * from registrations;
+-- select * from registrations;
 
 create table fuel_stations (
 	index int primary key,
@@ -25,9 +25,13 @@ create table fuel_stations (
 );
 
 -- drop table fuel_stations;
+-- select * from fuel_stations;
 
-select * from fuel_stations;
+--- END OF SCRIPTS TO CREATE THE TABLES ---- 
 
+
+
+--- FINAL SCRIPT:  TABLE JOIN ------- 
 select r.state, count(fs.fuel_type) as "charging_stations", r.registrations
 from fuel_stations fs, registrations r, state_abbreviations sa 
 where fs.state_abbr = sa.state_abbr
