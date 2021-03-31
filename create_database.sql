@@ -4,6 +4,8 @@ create table state_abbreviations (
 	state_abbr text
 );
 
+-- drop table state_abbreviations;
+
 select * from state_abbreviations;
 
 create table registrations (
@@ -21,7 +23,15 @@ create table fuel_stations (
 	state_abbr text,
 	fuel_type text
 );
+
 -- drop table fuel_stations;
 
 select * from fuel_stations;
+
+select count(fs.fuel_type) as "charging_stations", r.registrations, r.state
+from fuel_stations fs, registrations r, state_abbreviations sa 
+where fs.state_abbr = sa.state_abbr
+and r.state = sa.state
+group by r.registrations , r.state
+order by r.state
 
